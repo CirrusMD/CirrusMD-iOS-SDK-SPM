@@ -1,0 +1,1880 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
+// swift-module-flags: -target x86_64-apple-ios15.6-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name CirrusMDSDK
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+import AVFoundation
+import AmazonChimeSDK
+@_exported import CirrusMDSDK
+import Combine
+import CommonCrypto
+import CryptoKit
+import DeveloperToolsSupport
+import Foundation
+import Kingfisher
+import MessageUI
+import Network
+import PDFKit
+import PencilKit
+import Photos
+import PhotosUI
+import SafariServices
+import Security
+import Swift
+import SwiftUI
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+import os.log
+import os
+public struct NamedCharacters {
+  public static func decode(entity: Swift.String) -> Swift.Character?
+  public static let namedCharacterMap: [Swift.String : Swift.Character]
+  public static let characterNameMap: [Swift.Character : Swift.String]
+}
+@_hasMissingDesignatedInitializers open class InlineParser {
+  public var linkRefDef: [Swift.String : (Swift.String, Swift.String?)] {
+    get
+  }
+  open func parse() -> CirrusMDSDK.Block
+  public func collectLinkRefDef(_ block: CirrusMDSDK.Block)
+  public func collectLinkRefDef(_ blocks: CirrusMDSDK.Blocks)
+  open func parse(_ block: CirrusMDSDK.Block) -> CirrusMDSDK.Block
+  public func parse(_ blocks: CirrusMDSDK.Blocks) -> CirrusMDSDK.Blocks
+  public func transform(_ text: CirrusMDSDK.Text) -> CirrusMDSDK.Text
+  public func transform(_ row: CirrusMDSDK.Row) -> CirrusMDSDK.Row
+  public func transform(_ rows: CirrusMDSDK.Rows) -> CirrusMDSDK.Rows
+  public func transform(_ defs: CirrusMDSDK.Definitions) -> CirrusMDSDK.Definitions
+  @objc deinit
+}
+@available(iOS 8.0, *)
+public typealias ConstraintLayoutSupport = UIKit.UILayoutSupport
+public typealias ConstraintInsets = UIKit.UIEdgeInsets
+open class HtmlGenerator {
+  public static let standard: CirrusMDSDK.HtmlGenerator
+  public init()
+  open func generate(doc: CirrusMDSDK.Block) -> Swift.String
+  open func generate(blocks: CirrusMDSDK.Blocks, tight: Swift.Bool = false) -> Swift.String
+  open func generate(block: CirrusMDSDK.Block, tight: Swift.Bool = false) -> Swift.String
+  open func generate(text: CirrusMDSDK.Text) -> Swift.String
+  open func generate(textFragment fragment: CirrusMDSDK.TextFragment) -> Swift.String
+  open func generate(lines: CirrusMDSDK.Lines, separator: Swift.String = "\n") -> Swift.String
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class SetextHeadingParser : CirrusMDSDK.BlockParser {
+  override public func parse() -> CirrusMDSDK.BlockParser.ParseResult
+  required public init(docParser: CirrusMDSDK.DocumentParser)
+  @objc deinit
+}
+public struct ConstraintPriority : Swift.ExpressibleByFloatLiteral, Swift.Equatable, Swift.Strideable {
+  public typealias FloatLiteralType = Swift.Float
+  public let value: Swift.Float
+  public init(floatLiteral value: Swift.Float)
+  public init(_ value: Swift.Float)
+  public static var required: CirrusMDSDK.ConstraintPriority {
+    get
+  }
+  public static var high: CirrusMDSDK.ConstraintPriority {
+    get
+  }
+  public static var medium: CirrusMDSDK.ConstraintPriority {
+    get
+  }
+  public static var low: CirrusMDSDK.ConstraintPriority {
+    get
+  }
+  public static func == (lhs: CirrusMDSDK.ConstraintPriority, rhs: CirrusMDSDK.ConstraintPriority) -> Swift.Bool
+  public func advanced(by n: CirrusMDSDK.ConstraintPriority.FloatLiteralType) -> CirrusMDSDK.ConstraintPriority
+  public func distance(to other: CirrusMDSDK.ConstraintPriority) -> CirrusMDSDK.ConstraintPriority.FloatLiteralType
+  public typealias Stride = CirrusMDSDK.ConstraintPriority.FloatLiteralType
+}
+@_hasMissingDesignatedInitializers final public class Constraint {
+  final public var layoutConstraints: [CirrusMDSDK.LayoutConstraint]
+  final public var isActive: Swift.Bool {
+    get
+    set
+  }
+  @available(*, deprecated, renamed: "activate()")
+  final public func install()
+  @available(*, deprecated, renamed: "deactivate()")
+  final public func uninstall()
+  final public func activate()
+  final public func deactivate()
+  @discardableResult
+  final public func update(offset: any CirrusMDSDK.ConstraintOffsetTarget) -> CirrusMDSDK.Constraint
+  @discardableResult
+  final public func update(inset: any CirrusMDSDK.ConstraintInsetTarget) -> CirrusMDSDK.Constraint
+  @available(iOS 11.0, tvOS 11.0, *)
+  @discardableResult
+  final public func update(inset: any CirrusMDSDK.ConstraintDirectionalInsetTarget) -> CirrusMDSDK.Constraint
+  @discardableResult
+  final public func update(priority: any CirrusMDSDK.ConstraintPriorityTarget) -> CirrusMDSDK.Constraint
+  @discardableResult
+  final public func update(priority: CirrusMDSDK.ConstraintPriority) -> CirrusMDSDK.Constraint
+  @available(*, deprecated, renamed: "update(offset:)")
+  final public func updateOffset(amount: any CirrusMDSDK.ConstraintOffsetTarget)
+  @available(*, deprecated, renamed: "update(inset:)")
+  final public func updateInsets(amount: any CirrusMDSDK.ConstraintInsetTarget)
+  @available(*, deprecated, renamed: "update(priority:)")
+  final public func updatePriority(amount: any CirrusMDSDK.ConstraintPriorityTarget)
+  @available(*, deprecated, message: "Use update(priority: ConstraintPriorityTarget) instead.")
+  final public func updatePriorityRequired()
+  @available(*, deprecated, message: "Use update(priority: ConstraintPriorityTarget) instead.")
+  final public func updatePriorityHigh()
+  @available(*, deprecated, message: "Use update(priority: ConstraintPriorityTarget) instead.")
+  final public func updatePriorityMedium()
+  @available(*, deprecated, message: "Use update(priority: ConstraintPriorityTarget) instead.")
+  final public func updatePriorityLow()
+  @objc deinit
+}
+@available(iOS 9.0, macOS 10.11, *)
+extension UIKit.UILayoutGuide {
+  @_Concurrency.MainActor @preconcurrency public var snp: CirrusMDSDK.ConstraintLayoutGuideDSL {
+    get
+  }
+}
+public enum AnimationType {
+  case systemActivityIndicator
+  case horizontalCirclesPulse
+  case lineScaling
+  case singleCirclePulse
+  case multipleCirclePulse
+  case singleCircleScaleRipple
+  case multipleCircleScaleRipple
+  case circleSpinFade
+  case lineSpinFade
+  case circleRotateChase
+  case circleStrokeSpin
+  public static func == (a: CirrusMDSDK.AnimationType, b: CirrusMDSDK.AnimationType) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum AnimatedIcon {
+  case succeed
+  case failed
+  case added
+  public static func == (a: CirrusMDSDK.AnimatedIcon, b: CirrusMDSDK.AnimatedIcon) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum AlertIcon {
+  case heart
+  case doc
+  case bookmark
+  case moon
+  case star
+  case exclamation
+  case flag
+  case message
+  case question
+  case bolt
+  case shuffle
+  case eject
+  case card
+  case rotate
+  case like
+  case dislike
+  case privacy
+  case cart
+  case search
+  case copy
+  case info
+  case noCamera
+  public static func == (a: CirrusMDSDK.AlertIcon, b: CirrusMDSDK.AlertIcon) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension CirrusMDSDK.CMDHud {
+  @_Concurrency.MainActor @preconcurrency public class var animationType: CirrusMDSDK.AnimationType {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public class var colorBackground: UIKit.UIColor {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public class var colorHUD: UIKit.UIColor {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public class var colorStatus: UIKit.UIColor {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public class var colorAnimation: UIKit.UIColor {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public class var colorProgress: UIKit.UIColor {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public class var fontStatus: UIKit.UIFont {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public class var imageSuccess: UIKit.UIImage {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public class var hapticsEnabled: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency public class var imageError: UIKit.UIImage {
+    get
+    set
+  }
+}
+extension CirrusMDSDK.CMDHud {
+  @_Concurrency.MainActor @preconcurrency public class func dismiss()
+  @_Concurrency.MainActor @preconcurrency public class func remove()
+  @_Concurrency.MainActor @preconcurrency public class func show(_ status: Swift.String? = nil, interaction: Swift.Bool = true, haptic: UIKit.UINotificationFeedbackGenerator.FeedbackType? = nil)
+  @_Concurrency.MainActor @preconcurrency public class func show(_ status: Swift.String? = nil, icon: CirrusMDSDK.AnimatedIcon, interaction: Swift.Bool = true, delay: Foundation.TimeInterval? = nil, haptic: UIKit.UINotificationFeedbackGenerator.FeedbackType? = nil)
+  @_Concurrency.MainActor @preconcurrency public class func showSucceed(_ status: Swift.String? = nil, interaction: Swift.Bool = true, delay: Foundation.TimeInterval? = nil)
+  @_Concurrency.MainActor @preconcurrency public class func showFailed(_ status: Swift.String? = nil, interaction: Swift.Bool = true, delay: Foundation.TimeInterval? = nil)
+  @_Concurrency.MainActor @preconcurrency public class func showAdded(_ status: Swift.String? = nil, interaction: Swift.Bool = true, delay: Foundation.TimeInterval? = nil)
+  @_Concurrency.MainActor @preconcurrency public class func show(_ status: Swift.String? = nil, icon: CirrusMDSDK.AlertIcon, interaction: Swift.Bool = true, delay: Foundation.TimeInterval? = nil, haptic: UIKit.UINotificationFeedbackGenerator.FeedbackType? = nil)
+  @_Concurrency.MainActor @preconcurrency public class func showSuccess(_ status: Swift.String? = nil, image: UIKit.UIImage? = nil, interaction: Swift.Bool = true, delay: Foundation.TimeInterval? = nil)
+  @_Concurrency.MainActor @preconcurrency public class func showError(_ status: Swift.String? = nil, image: UIKit.UIImage? = nil, interaction: Swift.Bool = true, delay: Foundation.TimeInterval? = nil)
+  @_Concurrency.MainActor @preconcurrency public class func showProgress(_ progress: CoreFoundation.CGFloat, interaction: Swift.Bool = false)
+  @_Concurrency.MainActor @preconcurrency public class func showProgress(_ status: Swift.String?, _ progress: CoreFoundation.CGFloat, interaction: Swift.Bool = false)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class CMDHud : UIKit.UIView {
+  @objc deinit
+}
+extension CirrusMDSDK.ConstraintMakerRelatable {
+  @discardableResult
+  public func equalToSuperview<T>(_ closure: (CirrusMDSDK.ConstraintView) -> T, _ file: Swift.String = #file, line: Swift.UInt = #line) -> CirrusMDSDK.ConstraintMakerEditable where T : CirrusMDSDK.ConstraintRelatableTarget
+  @discardableResult
+  public func lessThanOrEqualToSuperview<T>(_ closure: (CirrusMDSDK.ConstraintView) -> T, _ file: Swift.String = #file, line: Swift.UInt = #line) -> CirrusMDSDK.ConstraintMakerEditable where T : CirrusMDSDK.ConstraintRelatableTarget
+  @discardableResult
+  public func greaterThanOrEqualToSuperview<T>(_ closure: (CirrusMDSDK.ConstraintView) -> T, _ file: Swift.String = #file, line: Swift.UInt = #line) -> CirrusMDSDK.ConstraintMakerEditable where T : CirrusMDSDK.ConstraintRelatableTarget
+}
+@_hasMissingDesignatedInitializers open class Container : Swift.CustomDebugStringConvertible {
+  public var content: [CirrusMDSDK.Block]
+  open func makeBlock(_ docParser: CirrusMDSDK.DocumentParser) -> CirrusMDSDK.Block
+  open var debugDescription: Swift.String {
+    get
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class NestedContainer : CirrusMDSDK.Container {
+  public init(outer: CirrusMDSDK.Container)
+  open var indentRequired: Swift.Bool {
+    get
+  }
+  open func skipIndent(input: Swift.String, startIndex: Swift.String.Index, endIndex: Swift.String.Index) -> Swift.String.Index?
+  override open func makeBlock(_ docParser: CirrusMDSDK.DocumentParser) -> CirrusMDSDK.Block
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class CheckboxView : UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class ExtendedMarkdownParser : CirrusMDSDK.MarkdownParser {
+  override open class var defaultBlockParsers: [CirrusMDSDK.BlockParser.Type] {
+    get
+  }
+  override open class var standard: CirrusMDSDK.ExtendedMarkdownParser {
+    get
+  }
+  override open func documentParser(blockParsers: [CirrusMDSDK.BlockParser.Type], input: Swift.String) -> CirrusMDSDK.DocumentParser
+  override public init(blockParsers: [CirrusMDSDK.BlockParser.Type]? = nil, inlineTransformers: [CirrusMDSDK.InlineTransformer.Type]? = nil)
+  @objc deinit
+}
+public protocol ConstraintRelatableTarget {
+}
+extension Swift.Int : CirrusMDSDK.ConstraintRelatableTarget {
+}
+extension Swift.UInt : CirrusMDSDK.ConstraintRelatableTarget {
+}
+extension Swift.Float : CirrusMDSDK.ConstraintRelatableTarget {
+}
+extension Swift.Double : CirrusMDSDK.ConstraintRelatableTarget {
+}
+extension CoreFoundation.CGFloat : CirrusMDSDK.ConstraintRelatableTarget {
+}
+extension CoreFoundation.CGSize : CirrusMDSDK.ConstraintRelatableTarget {
+}
+extension CoreFoundation.CGPoint : CirrusMDSDK.ConstraintRelatableTarget {
+}
+extension UIKit.UIEdgeInsets : CirrusMDSDK.ConstraintRelatableTarget {
+}
+@available(iOS 11.0, tvOS 11.0, *)
+extension UIKit.NSDirectionalEdgeInsets : CirrusMDSDK.ConstraintRelatableTarget {
+}
+extension CirrusMDSDK.ConstraintItem : CirrusMDSDK.ConstraintRelatableTarget {
+}
+extension UIKit.UIView : CirrusMDSDK.ConstraintRelatableTarget {
+}
+@available(iOS 9.0, macOS 10.11, *)
+extension UIKit.UILayoutGuide : CirrusMDSDK.ConstraintRelatableTarget {
+}
+public protocol ConstraintConstantTarget {
+}
+extension CoreFoundation.CGPoint : CirrusMDSDK.ConstraintConstantTarget {
+}
+extension CoreFoundation.CGSize : CirrusMDSDK.ConstraintConstantTarget {
+}
+extension UIKit.UIEdgeInsets : CirrusMDSDK.ConstraintConstantTarget {
+}
+@available(iOS 11.0, tvOS 11.0, *)
+extension UIKit.NSDirectionalEdgeInsets : CirrusMDSDK.ConstraintConstantTarget {
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class LayoutConstraint : UIKit.NSLayoutConstraint {
+  @_Concurrency.MainActor @preconcurrency public var label: Swift.String? {
+    get
+    set
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init()
+  @objc deinit
+}
+public protocol ConstraintOffsetTarget : CirrusMDSDK.ConstraintConstantTarget {
+}
+extension Swift.Int : CirrusMDSDK.ConstraintOffsetTarget {
+}
+extension Swift.UInt : CirrusMDSDK.ConstraintOffsetTarget {
+}
+extension Swift.Float : CirrusMDSDK.ConstraintOffsetTarget {
+}
+extension Swift.Double : CirrusMDSDK.ConstraintOffsetTarget {
+}
+extension CoreFoundation.CGFloat : CirrusMDSDK.ConstraintOffsetTarget {
+}
+@available(iOS 8.0, *)
+public struct ConstraintLayoutSupportDSL : CirrusMDSDK.ConstraintDSL {
+  public var target: Swift.AnyObject? {
+    get
+  }
+  public var top: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  public var bottom: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  public var height: CirrusMDSDK.ConstraintItem {
+    get
+  }
+}
+@_inheritsConvenienceInitializers open class LinkRefDefinitionParser : CirrusMDSDK.RestorableBlockParser {
+  override public var mayInterruptParagraph: Swift.Bool {
+    get
+  }
+  override public func parse() -> CirrusMDSDK.BlockParser.ParseResult
+  override public func tryParse() -> CirrusMDSDK.BlockParser.ParseResult
+  public static func balanced(_ str: Swift.Substring) -> Swift.Bool
+  required public init(docParser: CirrusMDSDK.DocumentParser)
+  @objc deinit
+}
+open class BlockParser {
+  public enum ParseResult {
+    case none
+    case block(CirrusMDSDK.Block)
+    case container((CirrusMDSDK.Container) -> CirrusMDSDK.Container)
+  }
+  required public init(docParser: CirrusMDSDK.DocumentParser)
+  public var finished: Swift.Bool {
+    get
+  }
+  public var prevParagraphLines: CirrusMDSDK.Text? {
+    get
+  }
+  public func consumeParagraphLines()
+  public var line: Swift.Substring {
+    get
+  }
+  public var contentStartIndex: Swift.Substring.Index {
+    get
+  }
+  public var contentEndIndex: Swift.Substring.Index {
+    get
+  }
+  public var lineIndent: Swift.Int {
+    get
+  }
+  public var lineEmpty: Swift.Bool {
+    get
+  }
+  public var prevLineEmpty: Swift.Bool {
+    get
+  }
+  public var shortLineIndent: Swift.Bool {
+    get
+  }
+  public var lazyContinuation: Swift.Bool {
+    get
+  }
+  open func readNextLine()
+  open var mayInterruptParagraph: Swift.Bool {
+    get
+  }
+  open func parse() -> CirrusMDSDK.BlockParser.ParseResult
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class RestorableBlockParser : CirrusMDSDK.BlockParser {
+  required public init(docParser: CirrusMDSDK.DocumentParser)
+  override open func parse() -> CirrusMDSDK.BlockParser.ParseResult
+  open func tryParse() -> CirrusMDSDK.BlockParser.ParseResult
+  @objc deinit
+}
+public protocol ConstraintDirectionalInsetTarget : CirrusMDSDK.ConstraintConstantTarget {
+}
+@available(iOS 11.0, tvOS 11.0, *)
+extension UIKit.NSDirectionalEdgeInsets : CirrusMDSDK.ConstraintDirectionalInsetTarget {
+}
+@_inheritsConvenienceInitializers open class AtxHeadingParser : CirrusMDSDK.BlockParser {
+  override public func parse() -> CirrusMDSDK.BlockParser.ParseResult
+  required public init(docParser: CirrusMDSDK.DocumentParser)
+  @objc deinit
+}
+extension UIKit.UIView {
+  @available(*, deprecated, renamed: "snp.left")
+  @_Concurrency.MainActor @preconcurrency public var snp_left: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.top")
+  @_Concurrency.MainActor @preconcurrency public var snp_top: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.right")
+  @_Concurrency.MainActor @preconcurrency public var snp_right: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.bottom")
+  @_Concurrency.MainActor @preconcurrency public var snp_bottom: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.leading")
+  @_Concurrency.MainActor @preconcurrency public var snp_leading: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.trailing")
+  @_Concurrency.MainActor @preconcurrency public var snp_trailing: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.width")
+  @_Concurrency.MainActor @preconcurrency public var snp_width: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.height")
+  @_Concurrency.MainActor @preconcurrency public var snp_height: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.centerX")
+  @_Concurrency.MainActor @preconcurrency public var snp_centerX: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.centerY")
+  @_Concurrency.MainActor @preconcurrency public var snp_centerY: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.baseline")
+  @_Concurrency.MainActor @preconcurrency public var snp_baseline: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, macOS 10.11, *)
+  @available(*, deprecated, renamed: "snp.lastBaseline")
+  @_Concurrency.MainActor @preconcurrency public var snp_lastBaseline: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, macOS 10.11, *)
+  @available(iOS, deprecated, renamed: "snp.firstBaseline")
+  @_Concurrency.MainActor @preconcurrency public var snp_firstBaseline: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  @available(iOS, deprecated, renamed: "snp.leftMargin")
+  @_Concurrency.MainActor @preconcurrency public var snp_leftMargin: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  @available(iOS, deprecated, renamed: "snp.topMargin")
+  @_Concurrency.MainActor @preconcurrency public var snp_topMargin: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  @available(iOS, deprecated, renamed: "snp.rightMargin")
+  @_Concurrency.MainActor @preconcurrency public var snp_rightMargin: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  @available(iOS, deprecated, renamed: "snp.bottomMargin")
+  @_Concurrency.MainActor @preconcurrency public var snp_bottomMargin: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  @available(iOS, deprecated, renamed: "snp.leadingMargin")
+  @_Concurrency.MainActor @preconcurrency public var snp_leadingMargin: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  @available(iOS, deprecated, renamed: "snp.trailingMargin")
+  @_Concurrency.MainActor @preconcurrency public var snp_trailingMargin: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  @available(iOS, deprecated, renamed: "snp.centerXWithinMargins")
+  @_Concurrency.MainActor @preconcurrency public var snp_centerXWithinMargins: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  @available(iOS, deprecated, renamed: "snp.centerYWithinMargins")
+  @_Concurrency.MainActor @preconcurrency public var snp_centerYWithinMargins: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.edges")
+  @_Concurrency.MainActor @preconcurrency public var snp_edges: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.size")
+  @_Concurrency.MainActor @preconcurrency public var snp_size: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.center")
+  @_Concurrency.MainActor @preconcurrency public var snp_center: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  @available(iOS, deprecated, renamed: "snp.margins")
+  @_Concurrency.MainActor @preconcurrency public var snp_margins: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  @available(iOS, deprecated, renamed: "snp.centerWithinMargins")
+  @_Concurrency.MainActor @preconcurrency public var snp_centerWithinMargins: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(*, deprecated, renamed: "snp.prepareConstraints(_:)")
+  @_Concurrency.MainActor @preconcurrency public func snp_prepareConstraints(_ closure: (_ make: CirrusMDSDK.ConstraintMaker) -> Swift.Void) -> [CirrusMDSDK.Constraint]
+  @available(*, deprecated, renamed: "snp.makeConstraints(_:)")
+  @_Concurrency.MainActor @preconcurrency public func snp_makeConstraints(_ closure: (_ make: CirrusMDSDK.ConstraintMaker) -> Swift.Void)
+  @available(*, deprecated, renamed: "snp.remakeConstraints(_:)")
+  @_Concurrency.MainActor @preconcurrency public func snp_remakeConstraints(_ closure: (_ make: CirrusMDSDK.ConstraintMaker) -> Swift.Void)
+  @available(*, deprecated, renamed: "snp.updateConstraints(_:)")
+  @_Concurrency.MainActor @preconcurrency public func snp_updateConstraints(_ closure: (_ make: CirrusMDSDK.ConstraintMaker) -> Swift.Void)
+  @available(*, deprecated, renamed: "snp.removeConstraints()")
+  @_Concurrency.MainActor @preconcurrency public func snp_removeConstraints()
+  @_Concurrency.MainActor @preconcurrency public var snp: CirrusMDSDK.ConstraintViewDSL {
+    get
+  }
+}
+extension CirrusMDSDK.LayoutConstraint {
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+}
+@_inheritsConvenienceInitializers open class ThematicBreakParser : CirrusMDSDK.BlockParser {
+  override public func parse() -> CirrusMDSDK.BlockParser.ParseResult
+  required public init(docParser: CirrusMDSDK.DocumentParser)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class ConstraintDescription {
+  @objc deinit
+}
+public protocol Action {
+}
+public protocol Middleware {
+  func shouldContinueStateUpdate(_ action: any CirrusMDSDK.Action) -> Swift.Bool
+}
+open class Store<State> : Foundation.ObservableObject {
+  @Combine.Published @_projectedValueProperty($state) public var state: State {
+    get
+  }
+  public var $state: Combine.Published<State>.Publisher {
+    get
+  }
+  public init(reducers: CirrusMDSDK.CombinedReducer<State>, initialState: State, queueName: Swift.String, middleware: [any CirrusMDSDK.Middleware], isLogging: Swift.Bool = false)
+  open func dispatch(_ action: any CirrusMDSDK.Action)
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+public protocol ReducerType {
+  func _handle(action: any CirrusMDSDK.Action, forState state: Any) -> Any
+}
+public protocol Reducer : CirrusMDSDK.ReducerType {
+  associatedtype State
+  func handle(action: any CirrusMDSDK.Action, forState state: Self.State) -> Self.State
+}
+extension CirrusMDSDK.Reducer {
+  public func _handle(action: any CirrusMDSDK.Action, forState state: Any) -> Any
+}
+public class CombinedReducer<StateType> : CirrusMDSDK.Reducer {
+  public typealias builder = (CirrusMDSDK.CombinedReducer<StateType>) -> Swift.Void
+  public init(_ reducers: [any CirrusMDSDK.ReducerType])
+  public typealias State = StateType
+  public func handle(action: any CirrusMDSDK.Action, forState state: CirrusMDSDK.CombinedReducer<StateType>.State) -> CirrusMDSDK.CombinedReducer<StateType>.State
+  @objc deinit
+}
+@discardableResult
+public func DoWithVersion<T>(key: Swift.AnyObject, version: CirrusMDSDK.Version<T>, task: () -> Swift.Void) -> Swift.Bool
+public struct Version<T> {
+  public let value: T
+  public init(_ versionable: T)
+}
+extension CirrusMDSDK.Version : Swift.Hashable {
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public func == <T>(lhs: CirrusMDSDK.Version<T>, rhs: CirrusMDSDK.Version<T>) -> Swift.Bool
+extension CirrusMDSDK.Version : Swift.CustomDebugStringConvertible {
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+public protocol ConstraintMultiplierTarget {
+  var constraintMultiplierTargetValue: CoreFoundation.CGFloat { get }
+}
+extension Swift.Int : CirrusMDSDK.ConstraintMultiplierTarget {
+  public var constraintMultiplierTargetValue: CoreFoundation.CGFloat {
+    get
+  }
+}
+extension Swift.UInt : CirrusMDSDK.ConstraintMultiplierTarget {
+  public var constraintMultiplierTargetValue: CoreFoundation.CGFloat {
+    get
+  }
+}
+extension Swift.Float : CirrusMDSDK.ConstraintMultiplierTarget {
+  public var constraintMultiplierTargetValue: CoreFoundation.CGFloat {
+    get
+  }
+}
+extension Swift.Double : CirrusMDSDK.ConstraintMultiplierTarget {
+  public var constraintMultiplierTargetValue: CoreFoundation.CGFloat {
+    get
+  }
+}
+extension CoreFoundation.CGFloat : CirrusMDSDK.ConstraintMultiplierTarget {
+  public var constraintMultiplierTargetValue: CoreFoundation.CGFloat {
+    get
+  }
+}
+public enum TextFragment : Swift.Equatable, Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+  case text(Swift.Substring)
+  case code(Swift.Substring)
+  case emph(CirrusMDSDK.Text)
+  case strong(CirrusMDSDK.Text)
+  case link(CirrusMDSDK.Text, Swift.String?, Swift.String?)
+  case autolink(CirrusMDSDK.AutolinkType, Swift.Substring)
+  case image(CirrusMDSDK.Text, Swift.String?, Swift.String?)
+  case html(Swift.Substring)
+  case delimiter(Swift.Character, Swift.Int, CirrusMDSDK.DelimiterRunType)
+  case softLineBreak
+  case hardLineBreak
+  case custom(any CirrusMDSDK.CustomTextFragment)
+  public var description: Swift.String {
+    get
+  }
+  public var rawDescription: Swift.String {
+    get
+  }
+  public var debugDescription: Swift.String {
+    get
+  }
+  public static func == (lhs: CirrusMDSDK.TextFragment, rhs: CirrusMDSDK.TextFragment) -> Swift.Bool
+}
+public enum AutolinkType : Swift.Equatable, Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+  case uri
+  case email
+  public var description: Swift.String {
+    get
+  }
+  public var debugDescription: Swift.String {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: CirrusMDSDK.AutolinkType, b: CirrusMDSDK.AutolinkType) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public typealias Lines = Swift.ContiguousArray<Swift.Substring>
+public struct DelimiterRunType : Swift.OptionSet, Swift.CustomStringConvertible {
+  public let rawValue: Swift.UInt8
+  public init(rawValue: Swift.UInt8)
+  public static let leftFlanking: CirrusMDSDK.DelimiterRunType
+  public static let rightFlanking: CirrusMDSDK.DelimiterRunType
+  public static let leftPunctuation: CirrusMDSDK.DelimiterRunType
+  public static let rightPunctuation: CirrusMDSDK.DelimiterRunType
+  public static let escaped: CirrusMDSDK.DelimiterRunType
+  public static let image: CirrusMDSDK.DelimiterRunType
+  public var description: Swift.String {
+    get
+  }
+  public typealias ArrayLiteralElement = CirrusMDSDK.DelimiterRunType
+  public typealias Element = CirrusMDSDK.DelimiterRunType
+  public typealias RawValue = Swift.UInt8
+}
+open class AttributedStringGenerator {
+  open class InternalHtmlGenerator : CirrusMDSDK.HtmlGenerator {
+    public init(outer: CirrusMDSDK.AttributedStringGenerator)
+    override open func generate(block: CirrusMDSDK.Block, tight: Swift.Bool = false) -> Swift.String
+    override open func generate(textFragment fragment: CirrusMDSDK.TextFragment) -> Swift.String
+    @objc deinit
+  }
+  public static let standard: CirrusMDSDK.AttributedStringGenerator
+  final public let fontSize: Swift.Float
+  final public let fontFamily: Swift.String
+  final public let fontColor: Swift.String
+  final public let codeFontSize: Swift.Float
+  final public let codeFontFamily: Swift.String
+  final public let codeFontColor: Swift.String
+  final public let codeBlockFontSize: Swift.Float
+  final public let codeBlockFontColor: Swift.String
+  final public let codeBlockBackground: Swift.String
+  final public let borderColor: Swift.String
+  final public let blockquoteColor: Swift.String
+  final public let h1Color: Swift.String
+  final public let h2Color: Swift.String
+  final public let h3Color: Swift.String
+  final public let h4Color: Swift.String
+  final public let maxImageWidth: Swift.String?
+  final public let maxImageHeight: Swift.String?
+  final public let customStyle: Swift.String
+  final public let imageBaseUrl: Foundation.URL?
+  public init(fontSize: Swift.Float = 14.0, fontFamily: Swift.String = "\"Times New Roman\",Times,serif", fontColor: Swift.String = mdDefaultColor, codeFontSize: Swift.Float = 13.0, codeFontFamily: Swift.String = "\"Consolas\",\"Andale Mono\",\"Courier New\",Courier,monospace", codeFontColor: Swift.String = mdDefaultColor, codeBlockFontSize: Swift.Float = 12.0, codeBlockFontColor: Swift.String = mdDefaultColor, codeBlockBackground: Swift.String = mdDefaultBackgroundColor, borderColor: Swift.String = "#bbb", blockquoteColor: Swift.String = "#99c", h1Color: Swift.String = mdDefaultColor, h2Color: Swift.String = mdDefaultColor, h3Color: Swift.String = mdDefaultColor, h4Color: Swift.String = mdDefaultColor, maxImageWidth: Swift.String? = nil, maxImageHeight: Swift.String? = nil, customStyle: Swift.String = "", imageBaseUrl: Foundation.URL? = nil)
+  open func generate(doc: CirrusMDSDK.Block) -> Foundation.NSAttributedString?
+  open func generate(block: CirrusMDSDK.Block) -> Foundation.NSAttributedString?
+  open func generate(blocks: CirrusMDSDK.Blocks) -> Foundation.NSAttributedString?
+  open var htmlGenerator: CirrusMDSDK.HtmlGenerator {
+    get
+  }
+  open func generateHtml(_ htmlBody: Swift.String) -> Swift.String
+  open var htmlHead: Swift.String {
+    get
+  }
+  open func htmlBody(_ body: Swift.String) -> Swift.String
+  open var docStyle: Swift.String {
+    get
+  }
+  open var bodyStyle: Swift.String {
+    get
+  }
+  open var h1Style: Swift.String {
+    get
+  }
+  open var h2Style: Swift.String {
+    get
+  }
+  open var h3Style: Swift.String {
+    get
+  }
+  open var h4Style: Swift.String {
+    get
+  }
+  open var pStyle: Swift.String {
+    get
+  }
+  open var ulStyle: Swift.String {
+    get
+  }
+  open var olStyle: Swift.String {
+    get
+  }
+  open var liStyle: Swift.String {
+    get
+  }
+  open var preStyle: Swift.String {
+    get
+  }
+  open var codeStyle: Swift.String {
+    get
+  }
+  open var preCodeStyle: Swift.String {
+    get
+  }
+  open var codeBoxStyle: Swift.String {
+    get
+  }
+  open var thematicBreakStyle: Swift.String {
+    get
+  }
+  open var blockquoteStyle: Swift.String {
+    get
+  }
+  open var quoteStyle: Swift.String {
+    get
+  }
+  open var imgStyle: Swift.String {
+    get
+  }
+  open var tableStyle: Swift.String {
+    get
+  }
+  open var tableHeaderStyle: Swift.String {
+    get
+  }
+  open var tableCellPadding: Swift.Int {
+    get
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class ConstraintMakerFinalizable {
+  @discardableResult
+  public func labeled(_ label: Swift.String) -> CirrusMDSDK.ConstraintMakerFinalizable
+  public var constraint: CirrusMDSDK.Constraint {
+    get
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class ListItemParser : CirrusMDSDK.BlockParser {
+  public init(docParser: CirrusMDSDK.DocumentParser, bulletChars: Swift.Set<Swift.Character>)
+  required public init(docParser: CirrusMDSDK.DocumentParser)
+  override public func parse() -> CirrusMDSDK.BlockParser.ParseResult
+  @objc deinit
+}
+public protocol CustomBlock : Swift.CustomDebugStringConvertible, Swift.CustomStringConvertible {
+  func equals(to other: any CirrusMDSDK.CustomBlock) -> Swift.Bool
+  func parse(via parser: CirrusMDSDK.InlineParser) -> CirrusMDSDK.Block
+  func generateHtml(via htmlGen: CirrusMDSDK.HtmlGenerator, tight: Swift.Bool) -> Swift.String
+  func generateHtml(via htmlGen: CirrusMDSDK.HtmlGenerator, and attGen: CirrusMDSDK.AttributedStringGenerator?, tight: Swift.Bool) -> Swift.String
+}
+public typealias ConstraintInterfaceLayoutDirection = UIKit.UIUserInterfaceLayoutDirection
+public struct ConstraintConfig {
+  public static var interfaceLayoutDirection: CirrusMDSDK.ConstraintInterfaceLayoutDirection
+}
+@_hasMissingDesignatedInitializers public class ConstraintMaker {
+  public var left: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var top: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var bottom: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var right: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var leading: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var trailing: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var width: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var height: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var centerX: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var centerY: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(*, deprecated, renamed: "lastBaseline")
+  public var baseline: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var lastBaseline: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, macOS 10.11, *)
+  public var firstBaseline: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var leftMargin: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var rightMargin: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var topMargin: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var bottomMargin: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var leadingMargin: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var trailingMargin: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var centerXWithinMargins: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var centerYWithinMargins: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var edges: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var horizontalEdges: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var verticalEdges: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var directionalEdges: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var directionalHorizontalEdges: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var directionalVerticalEdges: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var size: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var center: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var margins: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var directionalMargins: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var centerWithinMargins: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  final public let item: any CirrusMDSDK.LayoutConstraintItem
+  @objc deinit
+}
+extension Swift.String {
+  public func encodingPredefinedXmlEntities() -> Swift.String
+  public func encodingNamedCharacters() -> Swift.String
+  public func decodingNamedCharacters() -> Swift.String
+}
+@_inheritsConvenienceInitializers open class TableParser : CirrusMDSDK.RestorableBlockParser {
+  override open func parse() -> CirrusMDSDK.BlockParser.ParseResult
+  override open func tryParse() -> CirrusMDSDK.BlockParser.ParseResult
+  open func parseRow() -> CirrusMDSDK.Row?
+  required public init(docParser: CirrusMDSDK.DocumentParser)
+  @objc deinit
+}
+public func ValueOrEmptyString(_ string: Swift.String?) -> Swift.String
+extension Swift.String {
+  public func nonEmptyValue() -> Swift.String?
+  public var isPresent: Swift.Bool {
+    get
+  }
+  public func strip() -> Swift.String
+  public func rangeFromNSRange(_ nsRange: Foundation.NSRange) -> Swift.Range<Swift.String.Index>?
+  public func asURLPath(joinedBy components: Swift.String...) -> Swift.String
+  public func trunc(length: Swift.Int, trailing: Swift.String = "…") -> Swift.String
+  public func capitalizingFirstLetter() -> Swift.String
+  public func strippingHtml() -> Swift.String?
+  public func substring(start: Swift.Int, offsetBy: Swift.Int) -> Swift.String?
+  public func formatAsFullPhoneNumber() -> Swift.String?
+}
+extension Foundation.NSString {
+  public func nonEmptyValue() -> Swift.String?
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ConstraintMakerExtendable : CirrusMDSDK.ConstraintMakerRelatable {
+  public var left: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var top: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var bottom: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var right: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var leading: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var trailing: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var width: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var height: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var centerX: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var centerY: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(*, deprecated, renamed: "lastBaseline")
+  public var baseline: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var lastBaseline: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, macOS 10.11, *)
+  public var firstBaseline: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var leftMargin: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var rightMargin: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var topMargin: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var bottomMargin: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var leadingMargin: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var trailingMargin: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var centerXWithinMargins: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var centerYWithinMargins: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var edges: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var horizontalEdges: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var verticalEdges: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var directionalEdges: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var directionalHorizontalEdges: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var directionalVerticalEdges: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  public var size: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var margins: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var directionalMargins: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var centerWithinMargins: CirrusMDSDK.ConstraintMakerExtendable {
+    get
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers final public class ConstraintItem {
+  @objc deinit
+}
+public func == (lhs: CirrusMDSDK.ConstraintItem, rhs: CirrusMDSDK.ConstraintItem) -> Swift.Bool
+@available(iOS 11.0, tvOS 11.0, *)
+public typealias ConstraintDirectionalInsets = UIKit.NSDirectionalEdgeInsets
+@_inheritsConvenienceInitializers open class LinkTransformer : CirrusMDSDK.InlineTransformer {
+  override public func transform(_ text: CirrusMDSDK.Text) -> CirrusMDSDK.Text
+  required public init(owner: CirrusMDSDK.InlineParser)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class CodeLinkHtmlTransformer : CirrusMDSDK.InlineTransformer {
+  override public func transform(_ text: CirrusMDSDK.Text) -> CirrusMDSDK.Text
+  required public init(owner: CirrusMDSDK.InlineParser)
+  @objc deinit
+}
+public enum CirrusMDResult : Swift.Int {
+  case success
+  case invalidToken
+  case noSecretProvided
+  case serviceUnavailable
+  case sdkAlreadyConfiguredMustCallLogout
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum CirrusMDTokenState : Swift.Int {
+  case invalid
+  case unknown
+  case valid
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum CirrusMDLogLevel : Swift.Int {
+  case none
+  case error
+  case info
+  case debug
+  case networking
+  case verbose
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum CirrusMDContactIcon : Swift.Int {
+  case chat
+  case phone
+  case text
+  case tty
+  case link
+  case none
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public class CirrusMDContactOption {
+  public init(icon: CirrusMDSDK.CirrusMDContactIcon, contactText: Swift.String, contactURL: Foundation.URL?)
+  @objc deinit
+}
+public class CirrusMDActionModal {
+  public init(bannerTitle: Swift.String, modalTitle: Swift.String, modalHeader: Swift.String, modalSubHeader: Swift.String, contactOptions: [CirrusMDSDK.CirrusMDContactOption])
+  @objc deinit
+}
+public class CirrusMDPinnedBanner {
+  public init(actionModal: CirrusMDSDK.CirrusMDActionModal?, infoBannerMessage: Swift.String?)
+  @objc deinit
+}
+public protocol CirrusMDDelegate : AnyObject {
+  func viewForError(code: CirrusMDSDK.CirrusMDResult) -> UIKit.UIView?
+  func viewForLoggedOut() -> UIKit.UIView?
+  func userLoggedIn(credentialId: Swift.Int, analyticsId: Swift.String)
+  func userLoggedOut()
+  func errorReceived(error: Foundation.NSError, attributes: [Swift.AnyHashable : Swift.String]?)
+  func videoSessionConnectionStatus(attributes: [Swift.AnyHashable : Swift.String]?)
+  func requestInAppReview()
+}
+@_hasMissingDesignatedInitializers public class CirrusMD {
+  public var config: CirrusMDSDK.CirrusMDConfig {
+    get
+  }
+  weak public var delegate: (any CirrusMDSDK.CirrusMDDelegate)?
+  public var tokenState: CirrusMDSDK.CirrusMDTokenState {
+    get
+  }
+  public static let singleton: CirrusMDSDK.CirrusMD
+  public func registerForRemoteNotifications(_ deviceToken: Foundation.Data)
+  public func unregisterForRemoteNotifications()
+  public func startSDK(withLaunchOptions launchOptions: [UIKit.UIApplication.LaunchOptionsKey : Any]? = nil)
+  @discardableResult
+  public func setSDKConfiguration(_ newValue: CirrusMDSDK.CirrusMDConfig) -> CirrusMDSDK.CirrusMDResult
+  @objc deinit
+}
+public class CirrusMDConfig {
+  public var title: Swift.String?
+  public var primaryColor: UIKit.UIColor?
+  public var primaryColorDarkMode: UIKit.UIColor?
+  public var offHoursColor: UIKit.UIColor?
+  public var unassignedColor: UIKit.UIColor?
+  public var assignedColor: UIKit.UIColor?
+  public var errorColor: UIKit.UIColor?
+  public var successColor: UIKit.UIColor?
+  public var warningColor: UIKit.UIColor?
+  public var overrideUserInterfaceStyle: UIKit.UIUserInterfaceStyle
+  public var rightBarButtonItems: [UIKit.UIBarButtonItem]?
+  public var enableSettings: Swift.Bool
+  public var enableUserLogOut: Swift.Bool
+  public var enableDependents: Swift.Bool
+  public var userAgentPrefix: Swift.String?
+  public var showDebugInSettings: Swift.Bool
+  public var logLevel: CirrusMDSDK.CirrusMDLogLevel
+  public var accountDeletionEnabled: Swift.Bool
+  public var pinnedBanner: CirrusMDSDK.CirrusMDPinnedBanner?
+  public init()
+  public static func == (lhs: CirrusMDSDK.CirrusMDConfig, rhs: CirrusMDSDK.CirrusMDConfig) -> Swift.Bool
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class CirrusMDChannel {
+  public var name: Swift.String
+  public var id: Swift.String
+  @objc deinit
+}
+extension CirrusMDSDK.CirrusMD {
+  public var viewController: UIKit.UIViewController {
+    get
+  }
+  @_Concurrency.MainActor public func configureWithToken(_ token: Swift.String, andSecret: Swift.String, completion: ((CirrusMDSDK.CirrusMDResult) -> Swift.Void)?)
+  public func shouldPresentNotification(_ notification: UserNotifications.UNNotification) -> Swift.Bool
+  @discardableResult
+  public func didReceiveNotification(center: UserNotifications.UNUserNotificationCenter, response: UserNotifications.UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void) -> Swift.Bool
+  public func shouldPresentNotification(userInfo: [Swift.AnyHashable : Any]) -> Swift.Bool
+  @discardableResult
+  public func didReceiveNotification(userInfo: [Swift.AnyHashable : Any]) -> Swift.Bool
+  public func shouldPresentNotification(streamId: Swift.String, eventType: Swift.String) -> Swift.Bool
+  @discardableResult
+  public func didReceiveNotification(streamId: Swift.String, eventType: Swift.String) -> Swift.Bool
+  public func channels() -> [CirrusMDSDK.CirrusMDChannel]
+  public func navigateToChannel(id: Swift.String)
+  public func logOut()
+  public func debugViewController() -> UIKit.UIViewController
+}
+@_inheritsConvenienceInitializers open class HtmlBlockParser : CirrusMDSDK.BlockParser {
+  open class var supportedParsers: [CirrusMDSDK.HtmlBlockParserPlugin.Type] {
+    get
+  }
+  required public init(docParser: CirrusMDSDK.DocumentParser)
+  override open func parse() -> CirrusMDSDK.BlockParser.ParseResult
+  @objc deinit
+}
+open class HtmlBlockParserPlugin {
+  required public init()
+  public func isWhitespace(_ ch: Swift.Character) -> Swift.Bool
+  open func line(_ line: Swift.String, at: Swift.String.Index, startsWith str: Swift.String, endsWith suffix: Swift.String? = nil, htmlTagSuffix: Swift.Bool = true) -> Swift.Bool
+  open func startCondition(_ line: Swift.String) -> Swift.Bool
+  open func endCondition(_ line: Swift.String) -> Swift.Bool
+  open var emptyLineTerminator: Swift.Bool {
+    get
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers final public class ScriptBlockParserPlugin : CirrusMDSDK.HtmlBlockParserPlugin {
+  override final public func startCondition(_ line: Swift.String) -> Swift.Bool
+  override final public func endCondition(_ line: Swift.String) -> Swift.Bool
+  required public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers final public class CommentBlockParserPlugin : CirrusMDSDK.HtmlBlockParserPlugin {
+  override final public func startCondition(_ line: Swift.String) -> Swift.Bool
+  override final public func endCondition(_ line: Swift.String) -> Swift.Bool
+  required public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers final public class ProcessingInstructionBlockParserPlugin : CirrusMDSDK.HtmlBlockParserPlugin {
+  override final public func startCondition(_ line: Swift.String) -> Swift.Bool
+  override final public func endCondition(_ line: Swift.String) -> Swift.Bool
+  required public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers final public class DeclarationBlockParserPlugin : CirrusMDSDK.HtmlBlockParserPlugin {
+  override final public func startCondition(_ line: Swift.String) -> Swift.Bool
+  override final public func endCondition(_ line: Swift.String) -> Swift.Bool
+  required public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers final public class CdataBlockParserPlugin : CirrusMDSDK.HtmlBlockParserPlugin {
+  override final public func startCondition(_ line: Swift.String) -> Swift.Bool
+  override final public func endCondition(_ line: Swift.String) -> Swift.Bool
+  required public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers final public class HtmlTagBlockParserPlugin : CirrusMDSDK.HtmlBlockParserPlugin {
+  override final public func startCondition(_ line: Swift.String) -> Swift.Bool
+  override final public var emptyLineTerminator: Swift.Bool {
+    get
+  }
+  required public init()
+  @objc deinit
+}
+open class ExtendedListItemParser : CirrusMDSDK.ListItemParser {
+  required public init(docParser: CirrusMDSDK.DocumentParser)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class BlockquoteParser : CirrusMDSDK.BlockParser {
+  override public func parse() -> CirrusMDSDK.BlockParser.ParseResult
+  required public init(docParser: CirrusMDSDK.DocumentParser)
+  @objc deinit
+}
+open class DocumentParser {
+  public init(blockParsers: [CirrusMDSDK.BlockParser.Type], input: Swift.String)
+  public var finished: Swift.Bool {
+    get
+  }
+  public func readNextLine()
+  public func resetLineStart(_ startIndex: Swift.Substring.Index)
+  public func parse() -> CirrusMDSDK.Block
+  open func bundle(blocks: [CirrusMDSDK.Block]) -> CirrusMDSDK.Blocks
+  @objc deinit
+}
+public struct ConstraintViewDSL : CirrusMDSDK.ConstraintAttributesDSL {
+  @discardableResult
+  public func prepareConstraints(_ closure: (_ make: CirrusMDSDK.ConstraintMaker) -> Swift.Void) -> [CirrusMDSDK.Constraint]
+  public func makeConstraints(_ closure: (_ make: CirrusMDSDK.ConstraintMaker) -> Swift.Void)
+  public func remakeConstraints(_ closure: (_ make: CirrusMDSDK.ConstraintMaker) -> Swift.Void)
+  public func updateConstraints(_ closure: (_ make: CirrusMDSDK.ConstraintMaker) -> Swift.Void)
+  public func removeConstraints()
+  public var contentHuggingHorizontalPriority: Swift.Float {
+    get
+    nonmutating set
+  }
+  public var contentHuggingVerticalPriority: Swift.Float {
+    get
+    nonmutating set
+  }
+  public var contentCompressionResistanceHorizontalPriority: Swift.Float {
+    get
+    nonmutating set
+  }
+  public var contentCompressionResistanceVerticalPriority: Swift.Float {
+    get
+    nonmutating set
+  }
+  public var target: Swift.AnyObject? {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ConstraintMakerEditable : CirrusMDSDK.ConstraintMakerPrioritizable {
+  @discardableResult
+  public func multipliedBy(_ amount: any CirrusMDSDK.ConstraintMultiplierTarget) -> CirrusMDSDK.ConstraintMakerEditable
+  @discardableResult
+  public func dividedBy(_ amount: any CirrusMDSDK.ConstraintMultiplierTarget) -> CirrusMDSDK.ConstraintMakerEditable
+  @discardableResult
+  public func offset(_ amount: any CirrusMDSDK.ConstraintOffsetTarget) -> CirrusMDSDK.ConstraintMakerEditable
+  @discardableResult
+  public func inset(_ amount: any CirrusMDSDK.ConstraintInsetTarget) -> CirrusMDSDK.ConstraintMakerEditable
+  @available(iOS 11.0, tvOS 11.0, *)
+  @discardableResult
+  public func inset(_ amount: any CirrusMDSDK.ConstraintDirectionalInsetTarget) -> CirrusMDSDK.ConstraintMakerEditable
+  @objc deinit
+}
+open class MarkdownParser {
+  open class var defaultBlockParsers: [CirrusMDSDK.BlockParser.Type] {
+    get
+  }
+  public static let headingParsers: [CirrusMDSDK.BlockParser.Type]
+  open class var defaultInlineTransformers: [CirrusMDSDK.InlineTransformer.Type] {
+    get
+  }
+  open class var standard: CirrusMDSDK.MarkdownParser {
+    get
+  }
+  public func documentParser(input: Swift.String) -> CirrusMDSDK.DocumentParser
+  open func documentParser(blockParsers: [CirrusMDSDK.BlockParser.Type], input: Swift.String) -> CirrusMDSDK.DocumentParser
+  public func inlineParser(input: CirrusMDSDK.Block) -> CirrusMDSDK.InlineParser
+  open func inlineParser(inlineTransformers: [CirrusMDSDK.InlineTransformer.Type], input: CirrusMDSDK.Block) -> CirrusMDSDK.InlineParser
+  public init(blockParsers: [CirrusMDSDK.BlockParser.Type]? = nil, inlineTransformers: [CirrusMDSDK.InlineTransformer.Type]? = nil)
+  public func parse(_ str: Swift.String, blockOnly: Swift.Bool = false) -> CirrusMDSDK.Block
+  @objc deinit
+}
+public typealias AttributedAttrs = [Foundation.NSAttributedString.Key : Swift.AnyObject]
+extension Foundation.NSAttributedString {
+  public static func pairs(_ strings: [Swift.String], attrs: [CirrusMDSDK.AttributedAttrs]) -> Foundation.NSAttributedString
+  public static func htmlToAttributedString(html: Swift.String) -> Foundation.NSAttributedString?
+}
+public struct Text : Swift.Collection, Swift.Equatable, Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+  public typealias Index = Swift.ContiguousArray<CirrusMDSDK.TextFragment>.Index
+  public typealias Iterator = Swift.ContiguousArray<CirrusMDSDK.TextFragment>.Iterator
+  public init(_ str: Swift.Substring? = nil)
+  public init(_ fragment: CirrusMDSDK.TextFragment)
+  public var isEmpty: Swift.Bool {
+    get
+  }
+  public var first: CirrusMDSDK.TextFragment? {
+    get
+  }
+  public var last: CirrusMDSDK.TextFragment? {
+    get
+  }
+  public mutating func append(line: Swift.Substring, withHardLineBreak: Swift.Bool)
+  public mutating func append(fragment: CirrusMDSDK.TextFragment)
+  public mutating func replace(from: Swift.Int, to: Swift.Int, with fragments: [CirrusMDSDK.TextFragment])
+  public func makeIterator() -> CirrusMDSDK.Text.Iterator
+  public var startIndex: CirrusMDSDK.Text.Index {
+    get
+  }
+  public var endIndex: CirrusMDSDK.Text.Index {
+    get
+  }
+  public subscript(position: CirrusMDSDK.Text.Index) -> CirrusMDSDK.Text.Iterator.Element {
+    get
+  }
+  public func index(after i: CirrusMDSDK.Text.Index) -> CirrusMDSDK.Text.Index
+  public var description: Swift.String {
+    get
+  }
+  public var rawDescription: Swift.String {
+    get
+  }
+  public var debugDescription: Swift.String {
+    get
+  }
+  public func finalized() -> CirrusMDSDK.Text
+  public static func == (lhs: CirrusMDSDK.Text, rhs: CirrusMDSDK.Text) -> Swift.Bool
+  public typealias Element = CirrusMDSDK.Text.Iterator.Element
+  public typealias Indices = Swift.DefaultIndices<CirrusMDSDK.Text>
+  public typealias SubSequence = Swift.Slice<CirrusMDSDK.Text>
+}
+extension UIKit.UIColor {
+  public var hexString: Swift.String {
+    get
+  }
+}
+public let mdDefaultColor: Swift.String
+public let mdDefaultBackgroundColor: Swift.String
+open class InlineTransformer {
+  unowned final public let owner: CirrusMDSDK.InlineParser
+  required public init(owner: CirrusMDSDK.InlineParser)
+  open func transform(_ text: CirrusMDSDK.Text) -> CirrusMDSDK.Text
+  open func transform(_ fragment: CirrusMDSDK.TextFragment, from iterator: inout CirrusMDSDK.Text.Iterator, into res: inout CirrusMDSDK.Text) -> CirrusMDSDK.TextFragment?
+  @objc deinit
+}
+public protocol CustomTextFragment : Swift.CustomDebugStringConvertible, Swift.CustomStringConvertible {
+  func equals(to other: any CirrusMDSDK.CustomTextFragment) -> Swift.Bool
+  func transform(via transformer: CirrusMDSDK.InlineTransformer) -> CirrusMDSDK.TextFragment
+  func generateHtml(via htmlGen: CirrusMDSDK.HtmlGenerator) -> Swift.String
+  func generateHtml(via htmlGen: CirrusMDSDK.HtmlGenerator, and attrGen: CirrusMDSDK.AttributedStringGenerator?) -> Swift.String
+  var rawDescription: Swift.String { get }
+}
+public class MFAPhoneResponse {
+  public var accessToken: Swift.String
+  public var mfaToken: Swift.String?
+  public var phoneNumber: Swift.String?
+  public var redirectPath: Swift.String?
+  public var mfaChannel: Swift.String?
+  required public init()
+  @objc deinit
+  required public init(from decoder: any Swift.Decoder) throws
+}
+@_inheritsConvenienceInitializers open class ExtendedDocumentParser : CirrusMDSDK.DocumentParser {
+  override open func bundle(blocks: [CirrusMDSDK.Block]) -> CirrusMDSDK.Blocks
+  override public init(blockParsers: [CirrusMDSDK.BlockParser.Type], input: Swift.String)
+  @objc deinit
+}
+public protocol LayoutConstraintItem : AnyObject {
+}
+@available(iOS 9.0, macOS 10.11, *)
+extension UIKit.UILayoutGuide : CirrusMDSDK.LayoutConstraintItem {
+}
+extension UIKit.UIView : CirrusMDSDK.LayoutConstraintItem {
+}
+@_inheritsConvenienceInitializers open class CodeBlockParser : CirrusMDSDK.BlockParser {
+  public func formatIndentedLine(_ n: Swift.Int = 4) -> Swift.Substring
+  required public init(docParser: CirrusMDSDK.DocumentParser)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers final public class IndentedCodeBlockParser : CirrusMDSDK.CodeBlockParser {
+  override final public var mayInterruptParagraph: Swift.Bool {
+    get
+  }
+  override final public func parse() -> CirrusMDSDK.BlockParser.ParseResult
+  required public init(docParser: CirrusMDSDK.DocumentParser)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers final public class FencedCodeBlockParser : CirrusMDSDK.CodeBlockParser {
+  override final public func parse() -> CirrusMDSDK.BlockParser.ParseResult
+  required public init(docParser: CirrusMDSDK.DocumentParser)
+  @objc deinit
+}
+public protocol ConstraintDSL {
+  var target: Swift.AnyObject? { get }
+  func setLabel(_ value: Swift.String?)
+  func label() -> Swift.String?
+}
+extension CirrusMDSDK.ConstraintDSL {
+  public func setLabel(_ value: Swift.String?)
+  public func label() -> Swift.String?
+}
+public protocol ConstraintBasicAttributesDSL : CirrusMDSDK.ConstraintDSL {
+}
+extension CirrusMDSDK.ConstraintBasicAttributesDSL {
+  public var left: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  public var top: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  public var right: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  public var bottom: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  public var leading: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  public var trailing: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  public var width: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  public var height: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  public var centerX: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  public var centerY: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  public var edges: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  public var directionalEdges: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  public var horizontalEdges: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  public var verticalEdges: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  public var directionalHorizontalEdges: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  public var directionalVerticalEdges: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  public var size: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  public var center: CirrusMDSDK.ConstraintItem {
+    get
+  }
+}
+public protocol ConstraintAttributesDSL : CirrusMDSDK.ConstraintBasicAttributesDSL {
+}
+extension CirrusMDSDK.ConstraintAttributesDSL {
+  @available(*, deprecated, renamed: "lastBaseline")
+  public var baseline: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, macOS 10.11, *)
+  public var lastBaseline: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, macOS 10.11, *)
+  public var firstBaseline: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var leftMargin: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var topMargin: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var rightMargin: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var bottomMargin: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var leadingMargin: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var trailingMargin: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var centerXWithinMargins: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var centerYWithinMargins: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var margins: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var directionalMargins: CirrusMDSDK.ConstraintItem {
+    get
+  }
+  @available(iOS 8.0, *)
+  public var centerWithinMargins: CirrusMDSDK.ConstraintItem {
+    get
+  }
+}
+public protocol ConstraintInsetTarget : CirrusMDSDK.ConstraintConstantTarget {
+}
+extension Swift.Int : CirrusMDSDK.ConstraintInsetTarget {
+}
+extension Swift.UInt : CirrusMDSDK.ConstraintInsetTarget {
+}
+extension Swift.Float : CirrusMDSDK.ConstraintInsetTarget {
+}
+extension Swift.Double : CirrusMDSDK.ConstraintInsetTarget {
+}
+extension CoreFoundation.CGFloat : CirrusMDSDK.ConstraintInsetTarget {
+}
+extension UIKit.UIEdgeInsets : CirrusMDSDK.ConstraintInsetTarget {
+}
+public enum Block : Swift.Equatable, Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+  case document(CirrusMDSDK.Blocks)
+  case blockquote(CirrusMDSDK.Blocks)
+  case list(Swift.Int?, Swift.Bool, CirrusMDSDK.Blocks)
+  case listItem(CirrusMDSDK.ListType, Swift.Bool, CirrusMDSDK.Blocks)
+  case paragraph(CirrusMDSDK.Text)
+  case heading(Swift.Int, CirrusMDSDK.Text)
+  case indentedCode(CirrusMDSDK.Lines)
+  case fencedCode(Swift.String?, CirrusMDSDK.Lines)
+  case htmlBlock(CirrusMDSDK.Lines)
+  case referenceDef(Swift.String, Swift.Substring, CirrusMDSDK.Lines)
+  case thematicBreak
+  case table(CirrusMDSDK.Row, CirrusMDSDK.Alignments, CirrusMDSDK.Rows)
+  case definitionList(CirrusMDSDK.Definitions)
+  case custom(any CirrusMDSDK.CustomBlock)
+  public var description: Swift.String {
+    get
+  }
+  public var debugDescription: Swift.String {
+    get
+  }
+  public static func == (lhs: CirrusMDSDK.Block, rhs: CirrusMDSDK.Block) -> Swift.Bool
+}
+public enum ListType : Swift.Equatable, Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+  case bullet(Swift.Character)
+  case ordered(Swift.Int, Swift.Character)
+  public var startNumber: Swift.Int? {
+    get
+  }
+  public func compatible(with other: CirrusMDSDK.ListType) -> Swift.Bool
+  public var description: Swift.String {
+    get
+  }
+  public var debugDescription: Swift.String {
+    get
+  }
+  public static func == (a: CirrusMDSDK.ListType, b: CirrusMDSDK.ListType) -> Swift.Bool
+}
+public typealias Row = Swift.ContiguousArray<CirrusMDSDK.Text>
+public typealias Rows = Swift.ContiguousArray<CirrusMDSDK.Row>
+public enum Alignment : Swift.UInt, Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+  case undefined
+  case left
+  case right
+  case center
+  public var description: Swift.String {
+    get
+  }
+  public var debugDescription: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.UInt)
+  public typealias RawValue = Swift.UInt
+  public var rawValue: Swift.UInt {
+    get
+  }
+}
+public typealias Alignments = Swift.ContiguousArray<CirrusMDSDK.Alignment>
+public struct Definition : Swift.Equatable, Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+  public let item: CirrusMDSDK.Text
+  public let descriptions: CirrusMDSDK.Blocks
+  public init(item: CirrusMDSDK.Text, descriptions: CirrusMDSDK.Blocks)
+  public var description: Swift.String {
+    get
+  }
+  public var debugDescription: Swift.String {
+    get
+  }
+  public static func == (a: CirrusMDSDK.Definition, b: CirrusMDSDK.Definition) -> Swift.Bool
+}
+public typealias Definitions = Swift.ContiguousArray<CirrusMDSDK.Definition>
+public func isAsciiWhitespaceOrControl(_ ch: Swift.Character) -> Swift.Bool
+public func isWhitespace(_ ch: Swift.Character) -> Swift.Bool
+public func isWhitespaceString(_ str: Swift.Substring) -> Swift.Bool
+public func isUnicodeWhitespace(_ ch: Swift.Character) -> Swift.Bool
+public func isSpace(_ ch: Swift.Character) -> Swift.Bool
+public func isDash(_ ch: Swift.Character) -> Swift.Bool
+public func isAsciiPunctuation(_ ch: Swift.Character) -> Swift.Bool
+public func isUppercaseAsciiLetter(_ ch: Swift.Character) -> Swift.Bool
+public func isAsciiLetter(_ ch: Swift.Character) -> Swift.Bool
+public func isAsciiLetterOrDigit(_ ch: Swift.Character) -> Swift.Bool
+public func isControlCharacter(_ ch: Swift.Character) -> Swift.Bool
+public func isUnicodePunctuation(_ ch: Swift.Character) -> Swift.Bool
+public func skipWhitespace(in str: Swift.Substring, from index: inout Swift.Substring.Index, to endIndex: Swift.Substring.Index)
+public func isURI(_ str: Swift.String) -> Swift.Bool
+public func isHtmlTag(_ str: Swift.String) -> Swift.Bool
+public func isEmailAddress(_ str: Swift.String) -> Swift.Bool
+@available(iOS 9.0, macOS 10.11, *)
+public struct ConstraintLayoutGuideDSL : CirrusMDSDK.ConstraintAttributesDSL {
+  @discardableResult
+  public func prepareConstraints(_ closure: (_ make: CirrusMDSDK.ConstraintMaker) -> Swift.Void) -> [CirrusMDSDK.Constraint]
+  public func makeConstraints(_ closure: (_ make: CirrusMDSDK.ConstraintMaker) -> Swift.Void)
+  public func remakeConstraints(_ closure: (_ make: CirrusMDSDK.ConstraintMaker) -> Swift.Void)
+  public func updateConstraints(_ closure: (_ make: CirrusMDSDK.ConstraintMaker) -> Swift.Void)
+  public func removeConstraints()
+  public var target: Swift.AnyObject? {
+    get
+  }
+}
+@_inheritsConvenienceInitializers open class EmphasisTransformer : CirrusMDSDK.InlineTransformer {
+  public struct Emphasis {
+  }
+  open class var supportedEmphasis: [CirrusMDSDK.EmphasisTransformer.Emphasis] {
+    get
+  }
+  required public init(owner: CirrusMDSDK.InlineParser)
+  override public func transform(_ text: CirrusMDSDK.Text) -> CirrusMDSDK.Text
+  @objc deinit
+}
+public protocol ConstraintPriorityTarget {
+  var constraintPriorityTargetValue: Swift.Float { get }
+}
+extension Swift.Int : CirrusMDSDK.ConstraintPriorityTarget {
+  public var constraintPriorityTargetValue: Swift.Float {
+    get
+  }
+}
+extension Swift.UInt : CirrusMDSDK.ConstraintPriorityTarget {
+  public var constraintPriorityTargetValue: Swift.Float {
+    get
+  }
+}
+extension Swift.Float : CirrusMDSDK.ConstraintPriorityTarget {
+  public var constraintPriorityTargetValue: Swift.Float {
+    get
+  }
+}
+extension Swift.Double : CirrusMDSDK.ConstraintPriorityTarget {
+  public var constraintPriorityTargetValue: Swift.Float {
+    get
+  }
+}
+extension CoreFoundation.CGFloat : CirrusMDSDK.ConstraintPriorityTarget {
+  public var constraintPriorityTargetValue: Swift.Float {
+    get
+  }
+}
+extension UIKit.UILayoutPriority : CirrusMDSDK.ConstraintPriorityTarget {
+  public var constraintPriorityTargetValue: Swift.Float {
+    get
+  }
+}
+@available(iOS 9.0, *)
+public typealias ConstraintLayoutGuide = UIKit.UILayoutGuide
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class FancyButton : UIKit.UIButton {
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func setAttributedTitle(_ title: Foundation.NSAttributedString?, for state: UIKit.UIControl.State)
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func layoutSubviews()
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public var isEnabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public var isHighlighted: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  @objc deinit
+}
+public typealias Blocks = Swift.ContiguousArray<CirrusMDSDK.Block>
+extension Swift.ContiguousArray where Element == CirrusMDSDK.Block {
+  public var text: CirrusMDSDK.Text? {
+    get
+  }
+  public var isSingleton: Swift.Bool {
+    get
+  }
+}
+public typealias ConstraintView = UIKit.UIView
+@available(*, deprecated, message: "Use ConstraintMakerPrioritizable instead.")
+public typealias ConstraintMakerPriortizable = CirrusMDSDK.ConstraintMakerPrioritizable
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ConstraintMakerPrioritizable : CirrusMDSDK.ConstraintMakerFinalizable {
+  @discardableResult
+  public func priority(_ amount: CirrusMDSDK.ConstraintPriority) -> CirrusMDSDK.ConstraintMakerFinalizable
+  @discardableResult
+  public func priority(_ amount: any CirrusMDSDK.ConstraintPriorityTarget) -> CirrusMDSDK.ConstraintMakerFinalizable
+  @available(*, deprecated, message: "Use priority(.required) instead.")
+  @discardableResult
+  public func priorityRequired() -> CirrusMDSDK.ConstraintMakerFinalizable
+  @available(*, deprecated, message: "Use priority(.high) instead.")
+  @discardableResult
+  public func priorityHigh() -> CirrusMDSDK.ConstraintMakerFinalizable
+  @available(*, deprecated, message: "Use priority(.medium) instead.")
+  @discardableResult
+  public func priorityMedium() -> CirrusMDSDK.ConstraintMakerFinalizable
+  @available(*, deprecated, message: "Use priority(.low) instead.")
+  @discardableResult
+  public func priorityLow() -> CirrusMDSDK.ConstraintMakerFinalizable
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class ConstraintMakerRelatable {
+  @discardableResult
+  public func equalTo(_ other: any CirrusMDSDK.ConstraintRelatableTarget, _ file: Swift.String = #file, _ line: Swift.UInt = #line) -> CirrusMDSDK.ConstraintMakerEditable
+  @discardableResult
+  public func equalToSuperview(_ file: Swift.String = #file, _ line: Swift.UInt = #line) -> CirrusMDSDK.ConstraintMakerEditable
+  @discardableResult
+  public func lessThanOrEqualTo(_ other: any CirrusMDSDK.ConstraintRelatableTarget, _ file: Swift.String = #file, _ line: Swift.UInt = #line) -> CirrusMDSDK.ConstraintMakerEditable
+  @discardableResult
+  public func lessThanOrEqualToSuperview(_ file: Swift.String = #file, _ line: Swift.UInt = #line) -> CirrusMDSDK.ConstraintMakerEditable
+  @discardableResult
+  public func greaterThanOrEqualTo(_ other: any CirrusMDSDK.ConstraintRelatableTarget, _ file: Swift.String = #file, line: Swift.UInt = #line) -> CirrusMDSDK.ConstraintMakerEditable
+  @discardableResult
+  public func greaterThanOrEqualToSuperview(_ file: Swift.String = #file, line: Swift.UInt = #line) -> CirrusMDSDK.ConstraintMakerEditable
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class DelimiterTransformer : CirrusMDSDK.InlineTransformer {
+  open class var emphasisChars: [Swift.Character] {
+    get
+  }
+  required public init(owner: CirrusMDSDK.InlineParser)
+  override public func transform(_ fragment: CirrusMDSDK.TextFragment, from iterator: inout CirrusMDSDK.Text.Iterator, into res: inout CirrusMDSDK.Text) -> CirrusMDSDK.TextFragment?
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class EscapeTransformer : CirrusMDSDK.InlineTransformer {
+  override public func transform(_ fragment: CirrusMDSDK.TextFragment, from iterator: inout CirrusMDSDK.Text.Iterator, into res: inout CirrusMDSDK.Text) -> CirrusMDSDK.TextFragment?
+  required public init(owner: CirrusMDSDK.InlineParser)
+  @objc deinit
+}
+@available(iOS 8.0, *)
+extension UIKit.UILayoutSupport {
+  @_Concurrency.MainActor @preconcurrency public var snp: CirrusMDSDK.ConstraintLayoutSupportDSL {
+    get
+  }
+}
+extension CirrusMDSDK.AnimationType : Swift.Equatable {}
+extension CirrusMDSDK.AnimationType : Swift.Hashable {}
+extension CirrusMDSDK.AnimatedIcon : Swift.Equatable {}
+extension CirrusMDSDK.AnimatedIcon : Swift.Hashable {}
+extension CirrusMDSDK.AlertIcon : Swift.Equatable {}
+extension CirrusMDSDK.AlertIcon : Swift.Hashable {}
+extension CirrusMDSDK.AutolinkType : Swift.Hashable {}
+extension CirrusMDSDK.CirrusMDResult : Swift.Equatable {}
+extension CirrusMDSDK.CirrusMDResult : Swift.Hashable {}
+extension CirrusMDSDK.CirrusMDResult : Swift.RawRepresentable {}
+extension CirrusMDSDK.CirrusMDTokenState : Swift.Equatable {}
+extension CirrusMDSDK.CirrusMDTokenState : Swift.Hashable {}
+extension CirrusMDSDK.CirrusMDTokenState : Swift.RawRepresentable {}
+extension CirrusMDSDK.CirrusMDLogLevel : Swift.Equatable {}
+extension CirrusMDSDK.CirrusMDLogLevel : Swift.Hashable {}
+extension CirrusMDSDK.CirrusMDLogLevel : Swift.RawRepresentable {}
+extension CirrusMDSDK.CirrusMDContactIcon : Swift.Equatable {}
+extension CirrusMDSDK.CirrusMDContactIcon : Swift.Hashable {}
+extension CirrusMDSDK.CirrusMDContactIcon : Swift.RawRepresentable {}
+extension CirrusMDSDK.MFAPhoneResponse : Swift.Decodable {}
+extension CirrusMDSDK.Alignment : Swift.Equatable {}
+extension CirrusMDSDK.Alignment : Swift.Hashable {}
+extension CirrusMDSDK.Alignment : Swift.RawRepresentable {}
