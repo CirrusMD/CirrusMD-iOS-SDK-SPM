@@ -1,4 +1,4 @@
-// swift-tools-version:5.5
+// swift-tools-version:6.0.3
 import PackageDescription
 let package = Package(
     name: "CirrusMDSDKSPM",
@@ -15,12 +15,8 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(name: "Kingfisher",
-                 url: "https://github.com/onevcat/Kingfisher",
-                 .exact("8.1.3")),
-        .package(name: "AmazonChimeSDK",
-                 url: "https://github.com/aws/amazon-chime-sdk-ios-spm",
-                 .exact("0.26.2"))
+        .package(url: "https://github.com/onevcat/Kingfisher", from: "8.1.3"),
+        .package(url: "https://github.com/aws/amazon-chime-sdk-ios-spm", from: "0.26.2")
     ],
     targets: [
         .binaryTarget(
@@ -31,7 +27,7 @@ let package = Package(
                 dependencies: [
                     .target(name: "CirrusMDSDK"),
                     .product(name: "Kingfisher", package: "Kingfisher"),
-                    .product(name: "AmazonChimeSDK", package: "AmazonChimeSDK")
+                    .product(name: "AmazonChimeSDK", package: "amazon-chime-sdk-ios-spm")
                 ],
                 path: "Sources"
         )
