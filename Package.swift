@@ -8,6 +8,7 @@ let package = Package(
     products: [
         .library(
             name: "CirrusMDSDKSPM",
+            type: .dynamic,
             targets: [
                 "CirrusMDSDKTargets"
             ]
